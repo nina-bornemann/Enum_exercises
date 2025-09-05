@@ -23,6 +23,7 @@ public class Main {
         personRepo.personList.add(p3);
 
         System.out.println(personRepo.countPersonsByGender());
+        System.out.println(personRepo.getFavDayofPersons());
 
     }
 

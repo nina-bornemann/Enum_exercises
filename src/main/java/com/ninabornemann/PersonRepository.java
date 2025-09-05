@@ -28,4 +28,14 @@ public class PersonRepository {
         genderCounts.put(Gender.DIVERSE, diverseCount);
         return genderCounts;
     }
+
+
+    public List<String> getFavDayofPersons() {
+        List<String> favDayList = new ArrayList<>();
+        for (Person p : personList) {
+            String info = p.name() + "= Favorite day: " + p.favDay().getDayInWeek();
+            favDayList.add(info);
+        }
+        return favDayList;
+    }
 }

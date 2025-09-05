@@ -1,9 +1,6 @@
 package com.ninabornemann;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PersonRepository {
 
@@ -13,7 +10,7 @@ public class PersonRepository {
         int maleCount = 0;
         int femaleCount = 0;
         int diverseCount = 0;
-        Map<Gender, Integer> genderCounts = new HashMap<>();
+        Map<Gender, Integer> genderCounts = new LinkedHashMap<>();
         for (Person p : personList) {
             if (p.gender().equals(Gender.MALE)) {
                 maleCount++;
@@ -37,5 +34,32 @@ public class PersonRepository {
             favDayList.add(info);
         }
         return favDayList;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonRepository{" +
+                "personList=" + personList +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonRepository that = (PersonRepository) o;
+        return Objects.equals(personList, that.personList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(personList);
     }
 }
